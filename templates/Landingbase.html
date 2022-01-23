@@ -45,6 +45,15 @@
             <li class="nav-item"><a class="e nav-link" href="{% url 'core:Home' %}"><span>Home</span></a>
             </li>
 
+            </li>
+            {% if request.user.is_authenticated %}
+                <li class="nav-item"><a class="e nav-link" href="{% url 'core:Home' %}"><span>Dashboard</span></a>
+                </li>
+            {% else %}
+                <li class="nav-item"><a class="e nav-link" href="{% url 'account_login' %}"><span>Login</span></a>
+                </li>
+            {% endif %}
+
         </ul>
     </div>
 </div>
