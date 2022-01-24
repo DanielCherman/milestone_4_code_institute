@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+    <div class="content-body">
+        <section class="row">
+            <div class="col-sm-12">
+
+                <!-- Simple Card-->
+                <div id="simple-card" class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Fill out the following form to get a quote</h4>
+
+                    </div>
+                    <div class="card-body">
+
+                        <form method="post" enctype="multipart/form-data" name="quoteForm">
+                            {% csrf_token %}
+                            <div class="form-body">
+                                <h4 class="form-section">
+                                    <i class="ft-flag"></i> Get Quote from Freelancer</h4>
+                                <div class="form-group">
+                                    <label>Title</label>
+                                    {{ form.title }}
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Design Type</label>
+                                            {{ form.design_type }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Width</label>
+                                            <input type="number" class="form-control" name="width" step="any"
+                                                   required="" id="id_width">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Height</label>
+                                            <input type="number" class="form-control" name="height" step="any"
+                                                   required="" id="id_height">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Unit</label>
+                                            {{ form.unit }}
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label>Description</label>
+                                            {{ form.description }}
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <p>Upload Rough Sketch(Optional)</p>
+                                            {{ form.sketch }}
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">
+                                    Save
+                                </button>
+                            </div>
+                        </form>
+
+                        <div class="card-text">
+                            <p>To get price estimate please fill the width, height and unit field then press the
+                                following button</p>
+                            <button type="button" onclick="myfunc()" class="btn btn-info btn-min-width mr-1 mb-1">Show
+                                Price Estimate
+                            </button>
+                            <h5> Estimated Price: USD $<span name="estimate" id="id_estimate"></span></h5>
+                            <p><code>This is an the
+                                <storng>Estimated</storng>
+                                price. Actual Price will be sended to you by the Freelancer. </code></p>
+
+
+                        </div>
+                    </div>
+                </div>
+                <!--/ How to-->
+            </div>
+
+        </section>
+    </div>
+
+    <script>
+        function myfunc() {
+            const price_cm = 5;
+            const price_inch = 10;
+            const price_feet = 15;
+
+            let width = document.forms["quoteForm"]["width"].value;
+            let height = document.forms["quoteForm"]["height"].value;
+            let unit = document.forms["quoteForm"]["unit"].value;
+
+            if (width == "" || height == "" || unit == "") {
+                alert("Please fill the Width, Height and Unit to check the Estimated Cost");
+            } else {
+                if(unit == "cm") {
+                    let price_estimate = width * height * price_cm
+                    price_estimate = Number(price_estimate).toFixed(2);
+                    document.getElementById("id_estimate").innerHTML = price_estimate;
+                }else if(unit == "inch") {
+                    let price_estimate = width * height * price_inch
+                    price_estimate = Number(price_estimate).toFixed(2);
+                    document.getElementById("id_estimate").innerHTML = price_estimate;
+                }else if(unit == "feet") {
+                    let price_estimate = width * height * price_feet
+                    price_estimate = Number(price_estimate).toFixed(2);
+                    document.getElementById("id_estimate").innerHTML = price_estimate;
+                }
+
+            }
+        }
+    </script>
+{% endblock %}
+

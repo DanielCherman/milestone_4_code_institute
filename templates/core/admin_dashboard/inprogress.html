@@ -1,0 +1,83 @@
+{% extends 'admin_base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+    <div class="content-body">
+        <!-- Basic tabs start -->
+        <section id="basic-tabs-components">
+            <div class="row match-height">
+                {% for orders in orders %}
+                    <div class="col-xl-4 col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">In-Progress Order</h4>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="tab-content px-1 pt-1">
+                                        <h4>{{ orders.title }}</h4>
+                                        <p>Buyer: {{ orders.buyer.username }}</p>
+                                        <p>Description: {{ orders.description }}</p>
+                                        <button type="button" class="btn btn-info "
+                                                data-toggle="modal" data-target="#inlineForm">
+                                            Deliver
+                                        </button>
+                                        <!-- Modal -->
+                                        <div class="modal fade text-left" id="inlineForm"
+                                             tabindex="-1" role="dialog"
+                                             aria-labelledby="myModalLabel33" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <label class="modal-title text-text-bold-600"
+                                                               id="myModalLabel33">Reply with Final
+                                                            Price</label>
+                                                        <button type="button" class="close"
+                                                                data-dismiss="modal"
+                                                                aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <form action="{% url 'core:OrderDeliver' orders.id %}"
+                                                          method="post" enctype="multipart/form-data">
+                                                        {% csrf_token %}
+                                                        <div class="modal-body">
+                                                            <label>File: </label>
+                                                            <div class="form-group">
+                                                                <input type="file" name="delivery_file" required="" id="id_delivery_file">
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <input type="reset"
+                                                                   class="btn btn-secondary "
+                                                                   data-dismiss="modal"
+                                                                   value="close">
+                                                            <input type="submit"
+                                                                   class="btn btn-primary "
+                                                                   value="Submit">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Modal -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+        <!-- Basic tabs start -->
+    </div>
+    </div>
+    </div>
+
+
+
+{% endblock content %}

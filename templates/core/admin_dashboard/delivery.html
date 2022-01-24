@@ -1,0 +1,41 @@
+{% extends 'admin_base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+    <div class="content-body">
+        <!-- Basic tabs start -->
+        <section id="basic-tabs-components">
+            <div class="row match-height">
+                {% for orders in orders %}
+                    <div class="col-xl-4 col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Delivered Order</h4>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="tab-content px-1 pt-1">
+                                        <h4>{{ orders.title }}</h4>
+                                        <p>Buyer: {{ orders.buyer.username }}</p>
+                                        <p>Description: {{ orders.description }}</p>
+                                        <a href="{{ orders.delivery_file.url }}" class="btn btn-info ">
+                                            Download
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+        <!-- Basic tabs start -->
+    </div>
+
+
+
+
+{% endblock content %}

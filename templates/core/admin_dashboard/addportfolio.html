@@ -1,0 +1,51 @@
+{% extends 'admin_base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+    <section id="basic-form-layouts">
+        <div class="row match-height">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title" id="basic-layout-form">Add Portfolio Items</h4>
+                        <a class="heading-elements-toggle">
+                            <i class="la la-ellipsis-v font-medium-3"></i>
+                        </a>
+
+                    </div>
+                    <div class="card-content collapse show">
+                        <div class="card-body">
+                            <form class="form" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="form-body">
+
+                                    <div class="form-group">
+                                        <label for="companyName">Title</label>
+                                        {{form.title}}
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="companyinput8">Image(Screenshot)</label>
+                                        {{form.image }}
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+
+                                    <button type="submit" class="btn btn-primary"> Save
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+{% endblock content %}
