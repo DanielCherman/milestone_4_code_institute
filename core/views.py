@@ -1,13 +1,17 @@
 from django.contrib.auth.decorators import user_passes_test
 from django.shortcuts import render, redirect
-from .forms import ContactForm, QuoteForm
-from .models import CustomerQuery, Order
+from .forms import ContactForm, PortfolioForm, QuoteForm
+from .models import CustomerQuery, Order, Portfolio
 
 def check_admin(user):
     return user.is_superuser
 
 def Home(request):
-    return render(request, 'core/index.html')
+    getPortfolio = Portfolio.objects.all()[:6]
+    context = {
+        'portfolio': getPortfolio
+    }
+    return render(request, 'core/index.html', context)
 
 def ContactUsView(request):
     if request.method == 'POST':
@@ -125,3 +129,23 @@ def InProgressOrders(request):
             'orders': orders,
         }
         return render(request, 'core/inprogress.html', context)
+
+@user_passes_test(check_admin)
+def AddPortfolio(request):
+    if request.method == 'POST':
+        form = PortfolioForm(request.POST, request.FILES)
+        print("---------\n")
+        print(form)
+        print("---------\n")
+        if form.is_valid():
+            print("---------\n")
+            print(form)
+            print("---------\n")
+            form.save()
+            return redirect('core:OfferSend')
+    else:
+        form = PortfolioForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'core/admin_dashboard/addportfolio.html', context)

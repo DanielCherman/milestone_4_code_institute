@@ -1,6 +1,5 @@
 from django.urls import path
-from .views import ContactUsView, Home
-from .views import ContactUsView, Home, QuoteOrder, OrdersViews, SendOfferView, SaveReply, \
+from .views import AddPortfolio, ContactUsView, Home, QuoteOrder, OrdersViews, SendOfferView, SaveReply, \
     AcceptOffer, OrderDeliver, InProgressOrders, DeliveredOrder
 
 app_name = "core"
@@ -16,4 +15,5 @@ urlpatterns = [
     path('deliverOrder/<int:pk>', OrderDeliver, name="OrderDeliver"),
     path('inProgress/', InProgressOrders, name="InProgressOrders"),
     path('delivered/', DeliveredOrder, name="DeliveredOrder"),
+    path('addPortfolio/', AddPortfolio, name="AddPortfolio"),
 ]

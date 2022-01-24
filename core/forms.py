@@ -1,5 +1,5 @@
 from django import forms
-from .models import ContactUs, CustomerQuery
+from .models import ContactUs, CustomerQuery, Portfolio
 
 class ContactForm(forms.ModelForm):
     class Meta:
@@ -24,3 +24,13 @@ class QuoteForm(forms.ModelForm):
         self.fields['design_type'].widget.attrs = {'class': 'form-control', }
         self.fields['unit'].widget.attrs = {'class': 'form-control', }
         self.fields['description'].widget.attrs = {'class': 'form-control', }
+
+class PortfolioForm(forms.ModelForm):
+    class Meta:
+        model = Portfolio
+        fields = ['title', 'image']
+
+    def __init__(self, *args, **kwargs):
+        super(PortfolioForm, self).__init__(*args, **kwargs)
+        self.fields['title'].widget.attrs = {'class': 'form-control', }
+        self.fields['image'].widget.attrs = {'class': 'form-control', }
