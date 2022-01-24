@@ -196,3 +196,6 @@ ENV/
 .gitconfig
 
 **/migrations/
+
+**/uploads/
+**/media/
