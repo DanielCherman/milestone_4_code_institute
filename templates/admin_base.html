@@ -50,7 +50,7 @@
                 </ul>
                 <ul class="nav navbar-nav float-right">
                      <li class="nav-item d-none d-md-block"><a class="nav-link "
-                                                              href="#">Add to Portfolio</a></li>
+                                                              href="{% url 'core:AddPortfolio' %}">Add to Portfolio</a></li>
                     <li style="margin-top: 2%" class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link"
                                                                    href="#" data-toggle="dropdown"> <span
                             class="avatar avatar-online" style="margin-right: 60px">{{ request.user.username }}</span></a>
