@@ -48,7 +48,7 @@
             <li class="nav-item"><a class="e nav-link" href="{% url 'core:Contact' %}"><span>Contact Us</span></a>
             </li>
             {% if request.user.is_authenticated %}
-                <li class="nav-item"><a class="e nav-link" href="{% url 'core:Home' %}"><span>Dashboard</span></a>
+                <li class="nav-item"><a class="e nav-link" href="{% url 'core:Order' %}"><span>Dashboard</span></a>
                 </li>
             {% else %}
                 <li class="nav-item"><a class="e nav-link" href="{% url 'account_login' %}"><span>Login</span></a>
