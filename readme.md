@@ -116,10 +116,6 @@ To deploy this project locally, on your own IDE, folow the steps below:
         2.  PIP
         3.  Python 3
             
-    - You will need to have accounts (free if possible) setup on the following:
-        1.  Stripe
-        2.  AWS(For S3 Bucket Services)
-        3.  EmailJS
 
 Instructions for Installation:
 
