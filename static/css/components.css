@@ -3111,7 +3111,6 @@ body:after {
     background-color: green; }
 
 #codemirror-tabs + .CodeMirror .cm-tab {
-  background: url(../../app-assets/images/icons/img.png);
   background-position: right;
   background-repeat: no-repeat; }
 
@@ -3679,11 +3678,9 @@ a.dt-button.green {
   box-sizing: border-box; }
 
 td.details-control {
-  background: url("../images/datatables/resources/details_open.png") no-repeat center center;
   cursor: pointer; }
 
 tr.shown td.details-control {
-  background: url("../images/datatables/resources/details_close.png") no-repeat center center; }
 
 .DTFC_LeftBodyLiner, .DTFC_RightBodyLiner {
   background: white; }

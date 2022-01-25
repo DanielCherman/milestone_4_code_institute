@@ -1449,6 +1449,7 @@ select.form-control {
   .card .card-body[class*='border-bottom-'] {
     border-bottom-width: 2px !important; }
   .card .card-img-overlay.bg-overlay {
+  .card .card-img-overlay.bg-overlay {
     background: rgba(0, 0, 0, 0.45); }
   .card .card-img-overlay .text-muted {
     color: #464855 !important; }
