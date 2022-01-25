@@ -3982,7 +3982,6 @@ head title {
 }
 
 #codemirror-tabs + .CodeMirror .cm-tab {
-    background: url(../../app-assets/images/icons/img.png) right no-repeat
 }
 
 iframe#preview {
