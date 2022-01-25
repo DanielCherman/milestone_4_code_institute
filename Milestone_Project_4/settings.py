@@ -1,9 +1,10 @@
+import django_heroku
+
 from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-j2%r694%gbcwkcy__@@gv598n%$z7@c^3ehwbd93!drrshadue'
@@ -12,7 +13,6 @@ SECRET_KEY = 'django-insecure-j2%r694%gbcwkcy__@@gv598n%$z7@c^3ehwbd93!drrshadue
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -80,7 +80,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -99,7 +98,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
@@ -110,7 +108,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
@@ -140,11 +137,13 @@ ACCOUNT_LOGOUT_REDIRECT_URL = 'core:Home'
 
 ACCOUNT_EMAIL_VERIFICATION = 'optional'
 SOCIALACCOUNT_EMAIL_VERIFICATION = 'none'
-ACCOUNT_CONFIRM_EMAIL_ON_GET = False # TODO: change to True on prod
+ACCOUNT_CONFIRM_EMAIL_ON_GET = False  # TODO: change to True on prod
 
-SITE_ID=1
+SITE_ID = 1
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+django_heroku.settings(locals())
