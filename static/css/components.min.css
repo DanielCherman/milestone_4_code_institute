@@ -4602,14 +4602,6 @@ a.dt-button.green {
     width: 100%
 }
 
-td.details-control {
-    background: url(../images/datatables/resources/details_open.png) center center no-repeat
-}
-
-tr.shown td.details-control {
-    background: url(../images/datatables/resources/details_close.png) center center no-repeat
-}
-
 .DTFC_LeftBodyLiner, .DTFC_RightBodyLiner {
     background: #fff
 }
